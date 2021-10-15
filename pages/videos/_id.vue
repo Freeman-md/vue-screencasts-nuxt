@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>We are in videos 1</h4>
+    <h4>We are in videos {{ $route.params.id }}</h4>
   </div>
 </template>
 
