@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  layout: 'blog',
   data: () => ({
     videos: [
       {
