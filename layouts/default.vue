@@ -14,6 +14,10 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
 #default-body {
   max-width: 800px;
   margin: auto;

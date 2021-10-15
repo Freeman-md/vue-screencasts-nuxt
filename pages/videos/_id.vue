@@ -1,30 +1,18 @@
 <template>
   <div>
-    <nuxt-child :video="video" />
+    <nuxt-child :video="meal" />
   </div>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    videos: [
-      {
-        id: '10',
-        name: 'Intro to Nuxt JS'
-      },
-      {
-        id: '11',
-        name: 'Intro to Next JS'
-      },
-      {
-        id: '12',
-        name: 'Intro to Vue JS'
-      }
-    ]
-  }),
-  computed: {
-    video() {
-      return this.videos.find(v => v.id == this.$route.params.id)
+  async asyncData({ $axios, params }) {
+    
+    let response = await $axios.get(`/meals/${params.id}`)
+    const meal = response.data
+
+    return {
+      meal
     }
   }
 }

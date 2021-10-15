@@ -2,32 +2,23 @@
   <div>
     <h3>List of Videos</h3>
     <div 
-      v-for="(video, index) in videos" 
+      v-for="(meal, index) in meals" 
       :key="index"
     >
-      <nuxt-link :to="`/videos/${video.id}`">{{ video.name}}</nuxt-link>
+      <nuxt-link :to="`/videos/${meal.id}`">{{ meal.title}}</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'blog',
-  data: () => ({
-    videos: [
-      {
-        id: '10',
-        name: 'Intro to Nuxt JS'
-      },
-      {
-        id: '11',
-        name: 'Intro to Next JS'
-      },
-      {
-        id: '12',
-        name: 'Intro to Vue JS'
-      }
-    ]
-  })
+  async asyncData({ $axios }) {
+    let response = await $axios.get('/meals')
+    const meals = response.data.data
+
+    return {
+      meals
+    }
+  }
 }
 </script>
