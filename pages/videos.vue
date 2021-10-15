@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Videos</h1>
     <nuxt-child />
   </div>
 </template>
