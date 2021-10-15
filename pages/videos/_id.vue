@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   head() {
     return {
@@ -12,14 +13,17 @@ export default {
       titleTemplate: `%s ${this.video.title} - Vue Screencasts`
     }
   },
-  async asyncData({ $axios, params }) {
+  async fetch({ $axios, params, store }) {
     
     let response = await $axios.get(`/meals/${params.id}`)
     const video = response.data
 
-    return {
-      video
-    }
+    store.commit('SET_CURRENT_VIDEO', video)
+  },
+  computed: {
+    ...mapState({
+      video: 'currentVideo'
+    })
   }
 }
 </script>

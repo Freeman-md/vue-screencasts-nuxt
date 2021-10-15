@@ -2,10 +2,10 @@
   <div>
     <h3>List of Videos</h3>
     <div 
-      v-for="(meal, index) in meals" 
+      v-for="(videos, index) in $store.state.videos" 
       :key="index"
     >
-      <nuxt-link :to="`/videos/${meal.id}`">{{ meal.title}}</nuxt-link>
+      <nuxt-link :to="`/videos/${videos.id}`">{{ videos.title}}</nuxt-link>
     </div>
   </div>
 </template>
@@ -15,13 +15,11 @@ export default {
   head: {
     title: 'Vue Screencasts - Video List'
   },
-  async asyncData({ $axios }) {
+  async fetch({ $axios, store }) {
     let response = await $axios.get('/meals')
-    const meals = response.data.data
+    const videos = response.data.data
 
-    return {
-      meals
-    }
+    store.commit('SET_VIDEOS', videos)
   }
 }
 </script>
