@@ -6,6 +6,8 @@
 
 <script>
 export default {
-  
+  head: {
+    titleTemplate: 'Videos - %s'
+  }
 }
 </script>

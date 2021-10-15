@@ -12,6 +12,9 @@
 
 <script>
 export default {
+  head: {
+    title: 'Vue Screencasts - Video List'
+  },
   async asyncData({ $axios }) {
     let response = await $axios.get('/meals')
     const meals = response.data.data

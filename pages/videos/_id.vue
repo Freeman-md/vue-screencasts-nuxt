@@ -1,18 +1,24 @@
 <template>
   <div>
-    <nuxt-child :video="meal" />
+    <nuxt-child :video="video" />
   </div>
 </template>
 
 <script>
 export default {
+  head() {
+    return {
+      title: '',
+      titleTemplate: `%s ${this.video.title} - Vue Screencasts`
+    }
+  },
   async asyncData({ $axios, params }) {
     
     let response = await $axios.get(`/meals/${params.id}`)
-    const meal = response.data
+    const video = response.data
 
     return {
-      meal
+      video
     }
   }
 }

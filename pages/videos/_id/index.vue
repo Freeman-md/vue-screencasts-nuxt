@@ -9,6 +9,9 @@
 
 <script>
 export default {
+  head: {
+    title: 'Watch'
+  },
   props: [
     'video'
   ]
