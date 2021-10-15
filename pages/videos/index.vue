@@ -1,12 +1,12 @@
 <template>
   <div>
     <h3>List of Videos</h3>
-    <span 
+    <li 
       v-for="(video, index) in videos" 
       :key="index"
     >
       {{ video.name}}
-    </span>
+    </li>
   </div>
 </template>
 
