@@ -1,9 +1,17 @@
 <template>
   <div id="navbar">
-    <div class="navbar-links">
-      <nuxt-link to="/">Home</nuxt-link>
-      <nuxt-link to="/videos">Videos</nuxt-link>
-    </div>
+    <v-app-bar
+      color="green"
+      dense
+      dark
+    >
+      <v-btn text to="/">Vue Screencasts</v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn text to="/videos">Videos</v-btn>
+
+    </v-app-bar>
   </div>
 </template>
 
@@ -12,22 +20,3 @@ export default {
 
 }
 </script>
-
-<style>
-#navbar {
-  height: 40px;
-  width: 100%;
-  background-color: #333;
-}
-
-#navbar .navbar-links {
-  max-width: 800px;
-  margin: auto;
-}
-
-#navbar a {
-  color: white;
-  text-decoration: none;
-  margin-right: 10px;
-}
-</style>
